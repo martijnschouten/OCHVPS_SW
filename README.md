@@ -1,2 +1,2 @@
-# OCHVPS_SW
-Python GUI for the octo-channel HVPS
+# Python GUI for the octo-channel HVPS
+
