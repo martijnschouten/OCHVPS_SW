@@ -1,7 +1,1 @@
-.idea/
-__pycache__/
-build/
-dist/
-logs/
-main.spec
-venv/
+source/.idea/*
