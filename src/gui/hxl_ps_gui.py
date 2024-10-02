@@ -30,7 +30,19 @@ from PyQt6.QtGui import *
 from PyQt6.QtWidgets import *
 import sys
 # custom packages
-from Userdef import *
+
+import os
+import sys
+#add path to source
+print(os.path.abspath(__file__))
+#sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+
+# import time
+# while(True):
+#     time.sleep(1)
+
+from src.Userdef import *
 from src.gui.hxl_ps_widget import HaxelPowerSupplyWidget
 
 

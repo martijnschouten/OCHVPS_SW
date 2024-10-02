@@ -29,6 +29,11 @@ from PyQt6.QtCore import *
 from PyQt6.QtWidgets import *
 import pyqtgraph as pg
 # custom packages
+import os
+import sys
+#add path to source
+print(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from plots import *
 
 ########################################################################################################################

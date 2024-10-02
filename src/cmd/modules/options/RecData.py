@@ -28,7 +28,7 @@
 from datetime import *
 from pathlib import *
 # custom packages
-from Userdef import *
+from src.Userdef import *
 
 
 ########################################################################################################################
@@ -49,14 +49,14 @@ class RecData:
 
         if self.seq:
             print("[INFO] Recording sequential data.")
-            self.filename = folder.joinpath(f"HXL_PS_v1.0_log_seq_{datetime.now().strftime("%Y%m%d-%Hh%M.%S")}.csv")
+            self.filename = "HXL_PS_v1.0_log_seq_%s.csv"%(datetime.now().strftime("%Y%m%d-%Hh%M.%S"))
         else:
             print("[INFO] Recording data.")
-            self.filename = folder.joinpath(f"HXL_PS_v1.0_log_{datetime.now().strftime("%Y%m%d-%Hh%M.%S")}.csv")
+            self.filename = "HXL_PS_v1.0_log_%s.csv"%(datetime.now().strftime("%Y%m%d-%Hh%M.%S"))
 
         self.file = open(self.filename, 'w')
         self.file.write("Data recorded by HXL PS GUI beta version\r\n")
-        self.file.write(f"Date, {datetime.now().strftime("%Y %m %d - %H:%M:%S")}\r\n")
+        self.file.write("Date, %s\r\n"%(datetime.now().strftime("%Y %m %d - %H:%M:%S")))
         self.file.write(",Name,Version\n")
         self.file.write(f"Interface,{PROGRAM_NAME},{PROGRAM_VERSION}\n")
         self.file.write(f"Board,{self.pcb_prm['name']},{self.pcb_prm['hw_ver']}\n")
@@ -70,7 +70,7 @@ class RecData:
         """
         Save data
         """
-        self.file.write(f"{datetime.now().strftime("%H:%M:%S:%f")}, {line}")
+        self.file.write(str(datetime.now().strftime("%H:%M:%S:%f"))+ ", " + line)
 
     # **************************************************************************************************************** #
     def close_record(self):
@@ -80,7 +80,7 @@ class RecData:
         self.file.close()
 
         if self.settings['debug'] and not self.seq:
-            print(f"[INFO] Date/time when closing: {datetime.now().strftime("%Y %m %d - %H:%M:%S")}")
+            print(f"[INFO] Date/time when closing: %s"%(datetime.now().strftime("%Y %m %d - %H:%M:%S")))
             print(f"[INFO] Data saved to: {self.filename}")
         elif self.settings['debug'] and self.seq:
             print(f"[INFO] Sequential data saved to: {self.filename}")
