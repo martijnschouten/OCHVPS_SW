@@ -7,3 +7,5 @@ compilation instructions:
 - activate the virtual environment using `venv\Scripts\activate`
 - install the required packages using `pip install pyqt6 pyqtgraph pyserial pyinstaller`
 - run make.bat
+
+OCHVPS © 2021-2024 by MBE ochvps@proton.me
